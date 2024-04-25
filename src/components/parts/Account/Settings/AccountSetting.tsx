@@ -112,7 +112,11 @@ const AccountSetting: FC<AccountSettingProps> = ({ user }) => {
   );
 
   const onUploadSuccess = (results: CloudinaryUploadWidgetResults) => {
+    console.log(results);
+
     const info = results?.info as CloudinaryUploadWidgetInfo;
+
+    console.log(info);
 
     updateUserAvatarMutation.mutate({
       id: session?.user.id!,
@@ -139,6 +143,11 @@ const AccountSetting: FC<AccountSettingProps> = ({ user }) => {
                 uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
                 options={{
                   sources: ['local'],
+                  multiple: false,
+                  maxFileSize: 2000000,
+                  cropping: true,
+                  croppingAspectRatio: 1,
+                  clientAllowedFormats: ['png', 'jpeg', 'jpg', 'gif'],
                 }}
                 onSuccess={(results, { widget }) => {
                   onUploadSuccess(results);
