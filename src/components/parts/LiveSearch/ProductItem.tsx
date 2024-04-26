@@ -15,9 +15,8 @@ const ProductItem = ({ product }: ProductItemProps) => {
   return (
     <Link
       role="button"
-      // onClick={(e) => handleClick(e)}
       href={`/shop/${categorySlug}/${product.attributes.slug}`}
-      className="flex justify-between items-center gap-3 group"
+      className="flex  justify-between items-center gap-3 group"
     >
       <div className="flex gap-3 items-center">
         <Image
@@ -37,7 +36,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
           />
         </div>
       </div>
-      <div className="flex flex-col-reverse items-center gap-1">
+      <div className="hidden sm:flex flex-col-reverse items-center gap-1 ">
         {product.attributes.sellingPrice && (
           <h2 className="font-normal text-sm">
             {formatCurrency(product.attributes.sellingPrice)}

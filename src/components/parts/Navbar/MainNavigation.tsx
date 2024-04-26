@@ -22,11 +22,13 @@ const MainNavigation = ({ user }: { user: UserAccountProps | undefined }) => {
     <div className="flex justify-between items-center container py-4 bg-background">
       <MobileSidebar />
 
-      <Link href="/">
+      <Link href="/" className="hidden lg:block">
         <Image src="/logo.svg" alt="logo" width={150} height={100} />
       </Link>
 
-      <Searchbar className="w-1/2 hidden lg:block" />
+      <div className="w-full lg:w-1/2 px-3">
+        <Searchbar className="" />
+      </div>
 
       <div className="flex items-center">
         <div className="flex gap-2 items-center lg:divide-x-2">

@@ -104,7 +104,7 @@ const Searchbar = ({ className }: SearchbarProps) => {
               <span className="flex justify-between p-3">
                 <h2 className="uppercase font-medium">recommended for you</h2>
               </span>
-              <div className="grid grid-cols-3 gap-3 p-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-4">
                 {recommendedSearches.map((search) => (
                   <span key={search} className="">
                     <Button

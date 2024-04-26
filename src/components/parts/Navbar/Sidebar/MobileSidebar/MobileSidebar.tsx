@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { FiMenu } from 'react-icons/fi';
 
 import { Link } from '@/components/parts/Link';
-import Searchbar from '@/components/parts/LiveSearch/Searchbar';
 import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
 import { Button } from '@/components/ui/button';
 import {
@@ -31,8 +30,6 @@ const MobileSidebar = () => {
                 <Image src="/logo.svg" alt="logo" width={150} height={100} />
               </Link>
             </SheetTitle>
-
-            <Searchbar />
           </SheetHeader>
 
           <NavigationSidebar />
