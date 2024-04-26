@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { FaApplePay, FaGooglePay } from 'react-icons/fa';
+import { SiVisa } from 'react-icons/si';
 
 import { Link } from '@/components/parts/Link';
 import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
@@ -56,7 +58,7 @@ const Footer = () => {
         <div className="flex flex-col gap-3">
           <h1 className="text-white font-semibold">Download Mobile App</h1>
           <span className="border-b-[2px] border-primary w-10" />
-          <div className="flex gap-3">
+          <div className="flex flex-col md:flex-row gap-3">
             {cta.map((item, index) => (
               <button
                 key={index}
@@ -81,9 +83,13 @@ const Footer = () => {
       <div className="border-t-[1.2px] border-gray-700">
         <div className="container flex justify-between items-center py-5">
           <h1 className="text-gray-500 text-sm">
-            Grocery &copy; {year}. All Rights Reserved
+            Orago &copy; {year}. All Rights Reserved
           </h1>
-          <h1 className="text-white">Copyright &copy; 2022</h1>
+          <span className="text-white flex items-center gap-3">
+            <SiVisa className="w-8 h-8" />
+            <FaGooglePay className="w-8 h-8" />
+            <FaApplePay className="w-8 h-8" />
+          </span>
         </div>
       </div>
     </footer>
