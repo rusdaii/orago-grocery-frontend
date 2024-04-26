@@ -11,7 +11,6 @@ import { z } from 'zod';
 
 import { Link } from '@/components/parts/Link';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -22,6 +21,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
+import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
 import { setAccessToken } from '@/lib/cookies';
 import { signInValidation } from '@/lib/validation';
@@ -137,17 +137,7 @@ const SigninForm = ({ buttonVariant, rounded }: AuthFormProps) => {
           )}
         />
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Checkbox id="terms" />
-            <label
-              className="text-sm font-medium leading-none 
-              peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Remember me
-            </label>
-          </div>
-
+        <div className="flex justify-end">
           <Link
             href="/forgot-password"
             className="text-sm font-medium text-secondary hover:text-gray-400 hover:underline"
@@ -171,6 +161,8 @@ const SigninForm = ({ buttonVariant, rounded }: AuthFormProps) => {
             <h2 className="uppercase font-normal">Sign in</h2>
           )}
         </Button>
+
+        <Separator />
 
         <GoogleAuthButton />
       </form>

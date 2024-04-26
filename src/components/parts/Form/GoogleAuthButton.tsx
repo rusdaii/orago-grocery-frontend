@@ -7,9 +7,10 @@ const GoogleAuthButton = () => {
     <a href={`${process.env.NEXT_PUBLIC_API_BASE_URL}/connect/google`}>
       <Button
         type="button"
-        className="w-full bg-white text-gray-600 hover:bg-gray-50 flex items-center"
+        variant="outline"
+        className="w-full text-gray-600 flex items-center"
       >
-        <FcGoogle />
+        <FcGoogle className="w-5 h-5" />
         <span className="ml-2">Continue with Google</span>
       </Button>
     </a>

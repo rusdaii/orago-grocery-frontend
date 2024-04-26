@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
+import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
 import { setAccessToken } from '@/lib/cookies';
 import { signUpValidation } from '@/lib/validation';
@@ -195,6 +196,9 @@ const SignupForm = ({ buttonVariant, rounded }: AuthFormProps) => {
             <h2 className="uppercase font-normal">Sign up</h2>
           )}
         </Button>
+
+        <Separator />
+
         <GoogleAuthButton />
       </form>
     </Form>
