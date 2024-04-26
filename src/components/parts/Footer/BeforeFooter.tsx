@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 
 import Contact from '@/components/parts/Contact/Contact';
 import NewsletterForm from '@/components/parts/Form/NewsletterForm';
-import SocialMedia from '@/components/parts/SocialMedia';
+import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
 
 const BeforeFooter = () => {
   const path = usePathname();
@@ -24,7 +24,8 @@ const BeforeFooter = () => {
         </div>
         <div className="flex flex-col gap-5 items-center lg:flex-row lg:gap-16 lg:w-full">
           <NewsletterForm />
-          <SocialMedia background="light" />
+
+          <SocialMediaGroup />
         </div>
       </div>
     </section>

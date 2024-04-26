@@ -3,7 +3,7 @@ import { FiMenu } from 'react-icons/fi';
 
 import { Link } from '@/components/parts/Link';
 import Searchbar from '@/components/parts/LiveSearch/Searchbar';
-import SocialMedia from '@/components/parts/SocialMedia';
+import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -38,8 +38,8 @@ const MobileSidebar = () => {
           <NavigationSidebar />
         </div>
 
-        <div className="flex flex-col gap-10">
-          <SocialMedia className="justify-center gap-8" />
+        <div className="flex flex-col items-center gap-10">
+          <SocialMediaGroup />
         </div>
       </SheetContent>
     </Sheet>

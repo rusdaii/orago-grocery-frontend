@@ -12,7 +12,13 @@ const SocialMediaGroup = () => {
         className="rounded-full text-gray-600 hover:bg-primary 
         hover:text-white transition-colors ease-in-out duration-300"
       >
-        <FaFacebookF className="w-4 h-4" />
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebookF className="w-4 h-4" />
+        </a>
       </Button>
       <Button
         variant="ghost"
@@ -20,7 +26,13 @@ const SocialMediaGroup = () => {
         className="rounded-full text-gray-600 hover:bg-primary 
         hover:text-white transition-colors ease-in-out duration-300"
       >
-        <FaInstagram className="w-4 h-4" />
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram className="w-4 h-4" />
+        </a>
       </Button>
       <Button
         variant="ghost"
@@ -28,7 +40,9 @@ const SocialMediaGroup = () => {
         className="rounded-full text-gray-600 hover:bg-primary 
         hover:text-white transition-colors ease-in-out duration-300"
       >
-        <FaXTwitter className="w-4 h-4" />
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <FaXTwitter className="w-4 h-4" />
+        </a>
       </Button>
     </div>
   );

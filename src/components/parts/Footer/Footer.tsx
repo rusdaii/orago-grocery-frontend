@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { Link } from '@/components/parts/Link';
-import SocialMedia from '@/components/parts/SocialMedia';
+import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
 import { FooterLink } from '@/lib/constants/FooterLink';
 
 const cta = [
@@ -32,7 +32,7 @@ const Footer = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
             consequuntur amet culpa cum itaque neque.
           </p>
-          <SocialMedia />
+          <SocialMediaGroup />
         </div>
 
         <div className="flex gap-16">
