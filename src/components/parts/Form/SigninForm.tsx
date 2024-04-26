@@ -27,6 +27,7 @@ import { setAccessToken } from '@/lib/cookies';
 import { signInValidation } from '@/lib/validation';
 import { login } from '@/repositories/auth';
 
+import GoogleAuthButton from './GoogleAuthButton';
 import { AuthFormProps } from './type';
 
 const SigninForm = ({ buttonVariant, rounded }: AuthFormProps) => {
@@ -56,6 +57,7 @@ const SigninForm = ({ buttonVariant, rounded }: AuthFormProps) => {
         email: user.email,
         picture: user.image,
         jwt: accessToken,
+        provider: 'credentials',
       });
 
       if (signInResponse?.error) {
@@ -169,6 +171,8 @@ const SigninForm = ({ buttonVariant, rounded }: AuthFormProps) => {
             <h2 className="uppercase font-normal">Sign in</h2>
           )}
         </Button>
+
+        <GoogleAuthButton />
       </form>
     </Form>
   );

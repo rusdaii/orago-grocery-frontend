@@ -7,6 +7,7 @@ type UserSession = {
   email: string;
   jwt: string;
   picture: string;
+  provider: string;
 };
 
 export const options: NextAuthOptions = {
@@ -28,6 +29,7 @@ export const options: NextAuthOptions = {
             email: string;
             jwt: string;
             picture: string;
+            provider: string;
           };
 
           return user;

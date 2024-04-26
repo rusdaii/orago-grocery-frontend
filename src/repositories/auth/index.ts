@@ -5,6 +5,7 @@ import {
   ChangePasswordPayload,
   ForgotPasswordPayload,
   ForgotPasswordResponse,
+  ProviderSignInPayload,
   ResetPasswordPayload,
   SignInPayload,
   SignUpPayload,
@@ -59,6 +60,15 @@ export const resetPassword = async (payload: ResetPasswordPayload) => {
     url: '/auth/reset-password',
     method: 'POST',
     body: JSON.stringify({ ...payload }),
+  });
+
+  return response;
+};
+
+export const providerSignIn = async (payload: ProviderSignInPayload) => {
+  const response = await fetcher<AuthResponse>({
+    url: `/auth/${payload.provider}/callback`,
+    query: payload.id_token,
   });
 
   return response;

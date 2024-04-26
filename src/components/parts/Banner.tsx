@@ -8,8 +8,6 @@ import { Button } from '@/components/ui/button';
 import formatCurrency from '@/lib/currencyFormat';
 import { cn } from '@/lib/utils';
 
-import CountDownTimer from './Timer/CountDownTimer';
-
 type BannerProps = {
   title: string;
   campaign: string;
@@ -29,14 +27,6 @@ const Banner = ({
   imageurl,
   campaignDuration,
 }: BannerProps) => {
-  const DAYS_IN_MS = campaignDuration
-    ? campaignDuration * 24 * 60 * 60 * 1000
-    : 0;
-
-  const NOW_IN_MS = new Date().getTime();
-
-  const dateTime = NOW_IN_MS + DAYS_IN_MS;
-
   return (
     <div
       className={cn(
@@ -56,8 +46,6 @@ const Banner = ({
               <Badge className="bg-warning">{formatCurrency(price)}</Badge>
             </span>
           )}
-          {/* 
-          {campaignDuration && <CountDownTimer targetDate={dateTime} />} */}
 
           {cta && (
             <Link href={cta}>

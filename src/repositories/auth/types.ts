@@ -18,6 +18,7 @@ export type AuthResponse = {
     fullName: string;
     email: string;
     image: string;
+    provider: string;
   };
 };
 
@@ -48,4 +49,9 @@ export type ChangePasswordPayload = {
   currentPassword: string;
   password: string;
   passwordConfirmation: string;
+};
+
+export type ProviderSignInPayload = {
+  provider: string;
+  id_token: string;
 };

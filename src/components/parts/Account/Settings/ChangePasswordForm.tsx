@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -26,6 +26,8 @@ import { passwordUpdateValidation } from '@/lib/validation';
 import { changePassword } from '@/repositories/auth';
 
 const ChangePasswordForm = () => {
+  const { data: session } = useSession();
+
   const { toast } = useToast();
 
   const router = useRouter();
@@ -84,6 +86,12 @@ const ChangePasswordForm = () => {
       <Card>
         <CardHeader className="border-b border-border">
           <h1 className="font-semibold">Change Password</h1>
+          {session?.user.provider !== 'credentials' && (
+            <p className="text-sm text-gray-500">
+              {`You are currently logged in with ${session?.user.provider}. You can only change
+              your password if you have signed up with an email and password.`}
+            </p>
+          )}
         </CardHeader>
         <CardContent className="pt-5">
           <div>
@@ -104,6 +112,7 @@ const ChangePasswordForm = () => {
                       <FormControl>
                         <PasswordInput
                           placeholder="Enter Current Password"
+                          disabled={session?.user.provider !== 'credentials'}
                           {...field}
                         />
                       </FormControl>
@@ -125,6 +134,7 @@ const ChangePasswordForm = () => {
                         <FormControl>
                           <PasswordInput
                             placeholder="Enter New Password"
+                            disabled={session?.user.provider !== 'credentials'}
                             {...field}
                           />
                         </FormControl>
@@ -144,6 +154,7 @@ const ChangePasswordForm = () => {
                         <FormControl>
                           <PasswordInput
                             placeholder="Confirm New Password"
+                            disabled={session?.user.provider !== 'credentials'}
                             {...field}
                           />
                         </FormControl>
@@ -153,7 +164,11 @@ const ChangePasswordForm = () => {
                   />
                 </div>
 
-                <Button type="submit" className="w-full md:w-fit rounded-full">
+                <Button
+                  type="submit"
+                  className="w-full md:w-fit rounded-full"
+                  disabled={session?.user.provider !== 'credentials'}
+                >
                   Change Password
                 </Button>
               </form>

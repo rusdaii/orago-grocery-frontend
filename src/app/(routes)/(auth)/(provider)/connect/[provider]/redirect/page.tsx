@@ -1,4 +1,4 @@
-import AuthProviderRedirect from '@/components/pages/Auth/AuthProviverRedirect';
+import AuthProviderRedirect from '@/components/pages/Auth/AuthProviderRedirect';
 
 type Params = {
   params: {
