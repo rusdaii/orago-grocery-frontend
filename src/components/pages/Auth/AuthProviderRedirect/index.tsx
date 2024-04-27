@@ -1,5 +1,4 @@
 'use client';
-
 import { FC, useEffect, useState } from 'react';
 
 import { useMutation } from '@tanstack/react-query';
@@ -27,19 +26,21 @@ const AuthProviderRedirect: FC<AuthProviderRedirectProps> = ({ provider }) => {
   const { toast } = useToast();
 
   const providerSignInMutation = useMutation({
-    mutationFn: providerSignIn,
+    mutationFn: () => providerSignIn({ provider, id_token: params.toString() }),
     onSuccess: async (data) => {
       setText(
         'You have been successfully logged in. You will be redirected in a few seconds...'
       );
 
       const { user, jwt: accessToken } = data;
+
       setAccessToken(accessToken);
       await signIn('credentials', {
         redirect: false,
         id: user.id,
         name: user.username,
         email: user.email,
+        picture: user.image,
         jwt: accessToken,
         provider: user.provider,
       });
@@ -56,12 +57,9 @@ const AuthProviderRedirect: FC<AuthProviderRedirectProps> = ({ provider }) => {
   });
 
   useEffect(() => {
-    providerSignInMutation.mutate({
-      provider,
-      id_token: params.toString(),
-    });
+    providerSignInMutation.mutate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params, provider]);
+  }, []);
 
   return (
     <div className="container flex flex-col justify-center items-center w-full">
