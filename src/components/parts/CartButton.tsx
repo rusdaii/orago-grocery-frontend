@@ -50,7 +50,7 @@ const CartButton = ({
         title: 'Success',
         description: `${product.attributes.name} added to cart`,
         action: (
-          <Link href="/checkout">
+          <Link href="/shopping-cart/checkout">
             <Button className="bg-white text-black hover:bg-white ">
               Checkout
             </Button>
