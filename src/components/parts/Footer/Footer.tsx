@@ -3,6 +3,7 @@ import { FaApplePay, FaGooglePay } from 'react-icons/fa';
 import { SiVisa } from 'react-icons/si';
 
 import { Link } from '@/components/parts/Link';
+import LogoCompany from '@/components/parts/LogoCompany';
 import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
 import { FooterLink } from '@/lib/constants/FooterLink';
 
@@ -26,9 +27,7 @@ const Footer = () => {
     <footer className="bg-gray-900 w-full">
       <div className="container flex items-center flex-col xl:flex-row gap-20 py-20">
         <div className="flex flex-col gap-3 max-w-xs">
-          <Link href="/">
-            <Image src="/logo.svg" alt="logo" width={150} height={100} />
-          </Link>
+          <LogoCompany background="dark" />
 
           <p className=" text-gray-500">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt

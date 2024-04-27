@@ -1,9 +1,7 @@
 'use client';
 
-import Image from 'next/image';
-
-import { Link } from '@/components/parts/Link';
 import Searchbar from '@/components/parts/LiveSearch/Searchbar';
+import LogoCompany from '@/components/parts/LogoCompany';
 import ShoppingCartSidebar from '@/components/parts/ShoppingCart/ShoppingCartSidebar';
 import WishlistSidebar from '@/components/parts/Wishlist/WishlistSidebar';
 
@@ -22,9 +20,7 @@ const MainNavigation = ({ user }: { user: UserAccountProps | undefined }) => {
     <div className="flex justify-between items-center container py-4 bg-background">
       <MobileSidebar />
 
-      <Link href="/" className="hidden lg:block">
-        <Image src="/logo.svg" alt="logo" width={150} height={100} />
-      </Link>
+      <LogoCompany className="hidden lg:block" />
 
       <div className="w-full lg:w-1/2 px-3">
         <Searchbar className="" />

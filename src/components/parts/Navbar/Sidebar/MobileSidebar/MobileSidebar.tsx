@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import { FiMenu } from 'react-icons/fi';
 
-import { Link } from '@/components/parts/Link';
+import LogoCompany from '@/components/parts/LogoCompany';
 import SocialMediaGroup from '@/components/parts/SocialMediaGroup';
 import { Button } from '@/components/ui/button';
 import {
@@ -26,9 +25,7 @@ const MobileSidebar = () => {
         <div>
           <SheetHeader className="mb-5">
             <SheetTitle className="w-full flex justify-center mb-3">
-              <Link href="/">
-                <Image src="/logo.svg" alt="logo" width={150} height={100} />
-              </Link>
+              <LogoCompany />
             </SheetTitle>
           </SheetHeader>
 
