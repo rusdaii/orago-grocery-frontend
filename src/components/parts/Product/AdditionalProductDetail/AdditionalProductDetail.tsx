@@ -13,7 +13,7 @@ const AdditionalProductDetail = ({ product }: AdditionalProductDetailProps) => {
   return (
     <Tabs defaultValue="descriptions" className="py-12">
       <div className="flex flex-col justify-center">
-        <TabsList className="bg-transparent">
+        <TabsList className="bg-transparent flex flex-wrap">
           <TabsTrigger value="descriptions">Descriptions</TabsTrigger>
           <TabsTrigger value="additionalInformation">
             Additional Information
@@ -22,7 +22,7 @@ const AdditionalProductDetail = ({ product }: AdditionalProductDetailProps) => {
         </TabsList>
       </div>
 
-      <div className="py-10">
+      <div className="pt-16 md:py-10">
         <TabsContent value="descriptions">
           <AdditionalDescription
             description={product.attributes.additionalDescription}

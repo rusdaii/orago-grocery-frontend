@@ -21,7 +21,7 @@ const AdditionalDescription = ({
   const discount = Math.round(((mrpPrice - sellingPrice) / mrpPrice) * 100);
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
       {description ? (
         <article className="text-gray-400">
           <BlocksRenderer content={description} />
@@ -32,7 +32,7 @@ const AdditionalDescription = ({
         </article>
       )}
 
-      <div className="flex flex-col gap-5 place-self-end">
+      <div className="flex flex-col gap-5 place-self-end w-full">
         <Image
           src="/images/player-image.svg"
           alt="product-detail"
@@ -41,7 +41,7 @@ const AdditionalDescription = ({
           className="w-full"
         />
 
-        <div className="flex items-center gap-5 border border-gray-100 p-5 rounded-md">
+        <div className="flex flex-col justify-start sm:flex-row sm:justify-center gap-5 border border-gray-100 p-5 rounded-md">
           {sellingPrice && (
             <div className="flex gap-5 items-center">
               <IoPricetagsOutline className="w-8 h-8 text-primary" />
