@@ -34,7 +34,7 @@ const AdditionalDescription = ({
 
       <div className="flex flex-col gap-5 place-self-end w-full">
         <Image
-          src="/images/player-image.svg"
+          src="/images/courier.webp"
           alt="product-detail"
           width={500}
           height={500}
