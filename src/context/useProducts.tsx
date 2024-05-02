@@ -10,32 +10,7 @@ import {
 import { getProducts } from '@/repositories/products';
 import { Product } from '@/repositories/products/types';
 
-type FilterType = {
-  pagination?: {
-    pageSize?: number;
-    page?: number;
-    pageCount?: number;
-  };
-  sort?: {
-    createdAt: string;
-  };
-  filters?: {
-    name?: {
-      $containsi: string;
-    };
-    slug?: {
-      $eq?: string;
-    };
-    categories?: {
-      slug: {
-        $eq: string;
-      };
-    };
-    averageRating?: {
-      $gte: number;
-    };
-  };
-};
+import { FilterType } from './types';
 
 type ProductsContextType = {
   filter: {};

@@ -45,7 +45,7 @@ const Shop = ({ slug }: ProductsCategoryProps) => {
         pageSize: Number(searchParams.get('limit')) || 12,
       },
       sort: {
-        createdAt: searchParams.get('sort') || 'desc',
+        updatedAt: searchParams.get('sort') || 'desc',
       },
       filters: {
         averageRating: {

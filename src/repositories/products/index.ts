@@ -1,13 +1,15 @@
+import { FilterType } from '@/context/types';
 import fetcher from '@/lib/fetcher';
 import { queryGenerator } from '@/lib/queryGenerator';
 
 import { getProductDetailResponse, getProductsResponse } from './types';
 
-export const getProducts = async (filter?: any) => {
+export const getProducts = async (filters?: FilterType) => {
   const response = await fetcher<getProductsResponse>({
     url: `/products`,
+
     query: queryGenerator({
-      ...filter,
+      ...filters,
       populate: {
         ratings: '*',
       },
