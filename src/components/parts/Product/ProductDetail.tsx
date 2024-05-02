@@ -39,8 +39,10 @@ const ProductDetail = ({ product }: ProductItemDetailProps) => {
         <Image
           src={product?.attributes.image.data[0].attributes.url || '/logo.svg'}
           alt="image"
-          width={300}
-          height={300}
+          width={1000}
+          height={1000}
+          quality={100}
+          loading="lazy"
           className="w-1/2 lg:w-full lg:h-[350px] object-contain"
         />
       </div>
