@@ -24,13 +24,13 @@ const CardMiniProduct = ({ product }: CardMiniProductProps) => {
     >
       <Image
         src={product.attributes.image.data[0].attributes.url}
-        alt="sample"
+        alt={product.attributes.name}
         width={100}
         height={100}
-        className="object-cover"
+        className="object-cover h-20"
       />
       {product.attributes.sellingPrice && (
-        <Badge variant="destructive" className="absolute top-3 left-3">
+        <Badge variant="destructive" className="absolute top-3 right-3">
           {Math.round(
             ((product.attributes.mrp - product.attributes.sellingPrice) /
               product.attributes.mrp) *
