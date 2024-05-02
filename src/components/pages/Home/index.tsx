@@ -24,7 +24,11 @@ const Testimonial = dynamic(
   () => import('@/components/parts/Testimonial/Testimonial')
 );
 import { getCategories } from '@/repositories/categories';
-import { getPopularPorducts } from '@/repositories/products';
+import {
+  getBestRatingProducts,
+  getBestSellerProducts,
+  getHotDealsProducts,
+} from '@/repositories/products';
 import { getSlider } from '@/repositories/slider';
 
 const campaignData = [
@@ -45,33 +49,19 @@ const campaignData = [
 ];
 
 const Home = async () => {
-  const [sliderList, categoryList, popularProductList] = await Promise.all([
+  const [
+    sliderList,
+    categoryList,
+    bestRatingProductList,
+    bestSellerProductList,
+    hotDealsProductList,
+  ] = await Promise.all([
     getSlider(),
     getCategories(),
-    getPopularPorducts(),
+    getBestRatingProducts(),
+    getBestSellerProducts(),
+    getHotDealsProducts(),
   ]);
-
-  const bestRatingProductList = popularProductList
-    .filter((item) => {
-      return item.attributes.averageRating > 4;
-    })
-    .slice(0, 3);
-
-  const hotDealsProductList = popularProductList
-    .filter((item) => {
-      const higherDiscount =
-        ((item.attributes.mrp - item.attributes.sellingPrice) /
-          item.attributes.mrp) *
-        100;
-
-      return higherDiscount <= 50;
-    })
-    .sort((low, high) => high.attributes.mrp - low.attributes.mrp)
-    .slice(0, 3);
-
-  const bestSellerProductList = popularProductList
-    .filter((item) => item.attributes.totalSelling > 50)
-    .slice(0, 3);
 
   return (
     <>
@@ -80,7 +70,7 @@ const Home = async () => {
       <Feature />
 
       <CarouselProduct
-        productList={popularProductList}
+        productList={bestRatingProductList}
         title="Popular Products"
       />
 
@@ -107,7 +97,7 @@ const Home = async () => {
       </section>
 
       <CarouselProduct
-        productList={popularProductList}
+        productList={bestSellerProductList}
         title="Best Selling Products"
       />
 
@@ -116,11 +106,11 @@ const Home = async () => {
 
         <HighlightProduct
           title="Top Rated Products"
-          productList={bestRatingProductList}
+          productList={bestRatingProductList.slice(0, 3)}
         />
         <HighlightProduct
           title="Best Seller"
-          productList={bestSellerProductList}
+          productList={bestSellerProductList.slice(0, 3)}
         />
         <CtaPromo />
       </section>
