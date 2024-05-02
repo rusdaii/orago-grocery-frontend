@@ -30,8 +30,8 @@ const Footer = () => {
           <LogoCompany background="dark" />
 
           <p className=" text-gray-500">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-            consequuntur amet culpa cum itaque neque.
+            Orago is a specialized selling good quality organic products. We
+            have a wide range of organic products that are 100% natural.
           </p>
           <SocialMediaGroup />
         </div>

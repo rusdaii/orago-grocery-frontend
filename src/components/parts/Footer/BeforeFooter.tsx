@@ -18,8 +18,8 @@ const BeforeFooter = () => {
         <div className="text-center lg:text-start">
           <h1 className="font-bold text-2xl">Subcribe our Newsletter</h1>
           <p className="text-gray-500 text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-            asperiores veniam expedita, animi a tenetur totam incidunt soluta
+            Subscribe to our newsletter and get our latest news and updates
+            directly in your inbox.
           </p>
         </div>
         <div className="flex flex-col gap-5 items-center lg:flex-row lg:gap-16 lg:w-full">

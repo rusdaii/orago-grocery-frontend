@@ -7,17 +7,15 @@ import { Button } from '@/components/ui/button';
 const brandingData = [
   {
     title: 'Healthy & natural food for lovers of healthy food.',
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Doloremque error dolores placeat asperiores quasi amet ipsum
-    nihil non quia atque maiores, aliquam unde, repellat debitis
-    pariatur esse molestias hic. Perspiciatis.`,
+    description: `Indulge in healthy and natural foods that tantalize your taste buds. 
+    Crafted with select natural ingredients, our food is not only delicious but also nourishing. 
+    Experience true freshness and flavor, as health is our top priority.`,
   },
   {
     title: 'Every day fresh and quality products for you.',
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Doloremque error dolores placeat asperiores quasi amet ipsum
-    nihil non quia atque maiores, aliquam unde, repellat debitis
-    pariatur esse molestias hic. Perspiciatis.`,
+    description: `Every day, we serve fresh and quality products just for you. 
+    Made with care and to high cleanliness standards, we ensure that every product you purchase is the finest. 
+    Feel the difference with our fresh and high-quality products every day.`,
   },
 ];
 
