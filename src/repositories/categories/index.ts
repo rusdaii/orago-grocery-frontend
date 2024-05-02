@@ -14,9 +14,6 @@ export const getCategories = async () => {
         },
       },
     }),
-    next: {
-      revalidate: 60 * 60 * 24 * 3,
-    },
   });
 
   return response;
