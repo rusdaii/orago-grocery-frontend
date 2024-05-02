@@ -27,7 +27,7 @@ const CardMiniProduct = ({ product }: CardMiniProductProps) => {
         alt={product.attributes.name}
         width={500}
         height={500}
-        className="object-cover w-28 h-20"
+        className="object-cover w-20 h-20"
       />
       {product.attributes.sellingPrice && (
         <Badge variant="destructive" className="absolute top-3 right-3">
