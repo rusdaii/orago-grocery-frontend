@@ -18,7 +18,7 @@ const CtaPromo = () => {
         <h2 className="text-3xl">
           <b>Save 30%</b> on Every Order
         </h2>
-        <Link href="/products">
+        <Link href="/shop">
           <Button className="mt-3 rounded-full bg-white text-primary hover:text-white px-5">
             Shop Now
             <FaArrowRightLong className="ml-2 h-4 w-4" />

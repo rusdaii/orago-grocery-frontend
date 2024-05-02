@@ -59,10 +59,7 @@ const Branding = () => {
             </div>
           ))}
 
-          <Link
-            href="/products"
-            className="flex justify-center lg:justify-start"
-          >
+          <Link href="/shop" className="flex justify-center lg:justify-start">
             <Button className="w-full md:w-1/2 lg:w-fit flex items-center rounded-full py-6 px-7">
               Shop Now
               <FaArrowRightLong className="ml-2 h-4 w-4" />
