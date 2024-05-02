@@ -74,6 +74,7 @@ const Searchbar = ({ className }: SearchbarProps) => {
           className="pl-9"
           placeholder="Search..."
           value={searchValue}
+          autoComplete="off"
           {...register('search')}
         />
         {shouldShowSearchResult && !isPending ? (
