@@ -30,8 +30,8 @@ const CardProduct = ({ product }: ProductItemProps) => {
           <Image
             src={product.attributes.image.data[0].attributes.url}
             alt={product.attributes.name}
-            width={800}
-            height={800}
+            width={200}
+            height={200}
             quality={100}
             loading="lazy"
             className="h-[300px] object-contain group-hover:scale-110 transition-all ease-in-out duration-300"

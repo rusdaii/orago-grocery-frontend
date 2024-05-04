@@ -27,8 +27,8 @@ const Branding = () => {
           <Image
             src="/images/branding.webp"
             alt="branding"
-            width={1000}
-            height={1000}
+            width={400}
+            height={400}
             className="md:w-10/12 lg:w-full rounded-xl"
           />
         </div>

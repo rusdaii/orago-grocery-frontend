@@ -69,10 +69,11 @@ const HeroSlider = ({ sliderList }: SliderProps) => {
 
                       <div className="mt-7 lg:h-[400px]">
                         <Image
-                          className="w-full mx-auto md:w-1/2 lg:w-full"
+                          className="w-2/3 mx-auto md:w-1/2 lg:w-full"
                           src={slider.attributes.image.data.attributes.url}
-                          width={800}
-                          height={800}
+                          width={300}
+                          height={300}
+                          loading="lazy"
                           alt={slider.attributes.campaignName}
                         />
                       </div>

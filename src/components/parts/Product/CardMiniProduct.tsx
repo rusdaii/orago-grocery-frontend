@@ -25,8 +25,8 @@ const CardMiniProduct = ({ product }: CardMiniProductProps) => {
       <Image
         src={product.attributes.image.data[0].attributes.url}
         alt={product.attributes.name}
-        width={500}
-        height={500}
+        width={200}
+        height={200}
         className="object-cover w-20 h-20"
       />
       {product.attributes.sellingPrice && (
