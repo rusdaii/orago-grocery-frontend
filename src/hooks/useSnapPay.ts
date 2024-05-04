@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { redirect } from 'next/navigation';
+
 import { create } from 'zustand';
 
-import { ORDER_STATUS } from '@/lib/constants/orders';
-import { updateOrder } from '@/repositories/order';
 import { SuccessPaymentResponse } from '@/types/midtrans';
 
 type OptionsType = {
@@ -20,15 +18,6 @@ type SnapPayState = {
 export const useSnapPayState = create<SnapPayState>()(() => ({
   snapPay: (paymentToken: string, options) => {
     window.snap.pay(paymentToken, {
-      onSuccess: async (result: SuccessPaymentResponse) => {
-        const payload = {
-          orderId: +result.order_id,
-          status: ORDER_STATUS.PAID,
-          paymentMethod: result.payment_type,
-        };
-
-        await updateOrder(payload);
-      },
       ...options,
     });
   },
