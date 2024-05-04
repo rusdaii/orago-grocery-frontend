@@ -1,6 +1,7 @@
 'use client';
 import { FC, useEffect } from 'react';
 
+import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { RiLoader5Fill } from 'react-icons/ri';
 
@@ -23,6 +24,7 @@ import formatCurrency from '@/lib/currencyFormat';
 import { formatDate } from '@/lib/formatDate';
 import { useGetOrders } from '@/query/order';
 import { updateOrder } from '@/repositories/order';
+import { SuccessPaymentResponse } from '@/types/midtrans';
 
 type OrderHistoryTableProps = {
   currentPage?: number;
@@ -41,6 +43,8 @@ const OrderHistoryTable: FC<OrderHistoryTableProps> = ({
   const { data: session } = useSession();
 
   const { snapPay } = useSnapPay();
+
+  const router = useRouter();
 
   const { data: ordersResponse, isPending: isloadingOrders } = useGetOrders(
     session?.user?.id,
@@ -71,6 +75,17 @@ const OrderHistoryTable: FC<OrderHistoryTableProps> = ({
 
   const handleSnapPay = async (paymentToken: string, orderId: number) => {
     snapPay(paymentToken, {
+      onSuccess: async (result: SuccessPaymentResponse) => {
+        const payload = {
+          orderId: +result.order_id,
+          status: ORDER_STATUS.PAID,
+          paymentMethod: result.payment_type,
+        };
+
+        await updateOrder(payload);
+
+        router.replace(result.finish_redirect_url);
+      },
       onError: async (error) => {
         if (error.status_code === 407) {
           const payload = {
