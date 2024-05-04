@@ -7,6 +7,7 @@ import { updateOrder } from '@/repositories/order';
 import { SuccessPaymentResponse } from '@/types/midtrans';
 
 type OptionsType = {
+  onSuccess?: (result: SuccessPaymentResponse) => void;
   onPending?: (result: SuccessPaymentResponse) => void;
   onClose?: () => void;
   onError?: (error: any) => void;
@@ -27,8 +28,6 @@ export const useSnapPayState = create<SnapPayState>()(() => ({
         };
 
         await updateOrder(payload);
-
-        redirect(result.finish_redirect_url);
       },
       ...options,
     });

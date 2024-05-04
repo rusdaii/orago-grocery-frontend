@@ -29,11 +29,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useSnapPay } from '@/hooks/useSnapPay';
+import { ORDER_STATUS } from '@/lib/constants/orders';
 import formatCurrency from '@/lib/currencyFormat';
 import { shippingInformationValidation } from '@/lib/validation';
 import { useGetCartItems } from '@/query/cart';
 import { useGetUserInformation } from '@/query/user';
-import { createOrder } from '@/repositories/order';
+import { createOrder, updateOrder } from '@/repositories/order';
+import { SuccessPaymentResponse } from '@/types/midtrans';
 
 const CheckoutComponent = () => {
   const [checked, setChecked] = useState(false);
@@ -72,6 +74,17 @@ const CheckoutComponent = () => {
     mutationFn: createOrder,
     onSuccess: ({ token, orderId }) => {
       snapPay(token, {
+        onSuccess: async (result: SuccessPaymentResponse) => {
+          const payload = {
+            orderId: +result.order_id,
+            status: ORDER_STATUS.PAID,
+            paymentMethod: result.payment_type,
+          };
+
+          await updateOrder(payload);
+
+          router.replace(result.finish_redirect_url);
+        },
         onClose: () => {
           router.replace(
             `/shopping-cart/checkout/success?order_id=${orderId}&token=${token}`
