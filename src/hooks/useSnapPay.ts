@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { redirect } from 'next/navigation';
 import { create } from 'zustand';
 
 import { ORDER_STATUS } from '@/lib/constants/orders';
@@ -26,6 +27,8 @@ export const useSnapPayState = create<SnapPayState>()(() => ({
         };
 
         await updateOrder(payload);
+
+        redirect(result.finish_redirect_url);
       },
       ...options,
     });
