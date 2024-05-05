@@ -27,12 +27,11 @@ const ActiveFilter = ({
   );
 
   return (
-    <div className="flex justify-between border-t border-b border-gray-200 mt-5 py-2">
-      <div className="flex items-center gap-2">
+    <div className="flex justify-center sm:justify-between border-t border-b border-gray-200 mt-5 py-2">
+      <div className="flex flex-col sm:flex-row items-center gap-2">
         <h2 className="text-sm text-gray-500 font-normal mr-5">
           Active Filters:
         </h2>
-
         {query && (
           <div className="flex items-center gap-2">
             {query.split('&').map((item, index) => {
@@ -57,7 +56,7 @@ const ActiveFilter = ({
         )}
       </div>
 
-      <div className="flex gap-1 items-center">
+      <div className="sm:flex hidden gap-1 items-center">
         <h2 className="text-sm font-semibold">{productCount}</h2>
         <span className="text-sm text-gray-500 font-normal">Results found</span>
       </div>
